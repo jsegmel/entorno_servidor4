@@ -1,0 +1,108 @@
+
+
+body{
+   /* background-image:url("../imagenes/paisaje.png");
+        background-repeat: no-repeat;
+    background-size:cover;*/
+    background-color: #C8E9FB;
+}
+
+
+
+
+#cabecera ul li{
+    
+    
+    display: inline-block;
+    margin: 0px;
+    padding: 8px;
+    
+    
+}
+
+ 
+    
+
+
+td{
+   
+   text-align: center;
+   
+   border: 0px solid #000;
+   border-collapse: collapse;
+   height: 20px;
+   padding: 0.3em;
+   
+}
+textarea{
+   width: 400px;
+    height: 100px;
+
+    
+    
+}
+#form_u{
+  /*formulario de usuarios*/  
+    background-color: transparent;
+    
+}
+.div1{
+    background-color: transparent;
+    margin: 10px;
+    overflow: scroll;
+    
+    height: 900px;               
+    width: 45%;
+    float: left;
+}
+ 
+    
+
+
+
+
+.div1 table{
+    
+    
+    width:auto;                       
+    background-color:transparent;
+    
+}
+.for_u{
+    background-color: transparent;
+    width: 23%;
+    height: 500px;
+  margin: 10px;                   
+    padding: 10px;
+  float: left;  
+    border-radius: 10px;
+}
+    
+.eu{
+    border-radius: 10px;
+    background-color: transparent;
+    height: 500px;
+    width: 23%;                 
+    margin: 10px;
+    padding: 10px;
+    float :left;
+    
+} 
+
+.mu{
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    float:left;                    
+    width: 48%;
+    height: 330px;
+    background-color: azure;
+}
+.mu p{
+    
+    width: 400px;
+   background-color: azure;    
+    float: left;
+}
+
+
