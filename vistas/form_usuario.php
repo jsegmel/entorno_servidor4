@@ -35,7 +35,7 @@
         case "modificar":
         
         case "eliminar":
-            
+            eliminar_usuario();
             
             
     }
@@ -70,13 +70,27 @@
             </form>
         <?php
     }
- 
-        ?>
+    function eliminar_usuario(){
           
-    
+        ?>
+         
+         <form method="post"  action="../conexion/comprobar.php">
+                 <input name="id" type="hidden" value=<?php echo $_POST["id"]?></input>
+                 <input type="submit" name="eliminaru" value="eliminar"></input>
+            </form>
+ 
 
 
 
+
+
+
+
+
+
+    <?php
+         }
+     ?>
 
 
 

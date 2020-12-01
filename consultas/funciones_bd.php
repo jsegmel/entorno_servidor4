@@ -50,12 +50,12 @@ $resultado=mysqli_query($conexion,$sql);
      
      
          echo  "<br>noticia eliminada";
-              
-     
+             
          } else {
      
      
               echo "<br>no se elimino" ;
+              
          }
             
             
@@ -84,29 +84,35 @@ $resultado=mysqli_query($conexion,$sql);
                 if ( $resultado ) {
      
                 echo  "<br>Insercion exitosa";
+              
      
                 } else {
      
                echo "<br>no se guardo" ;
+                 
+                    
+                    
                }
             
                }
             
             
     function eliminar_usuario($id,$conexion){
-                
-             
-               $sql = "DELETE FROM usuarios WHERE id =$id"; 
+        
+               $sql = "DELETE FROM usuarios WHERE id ='$id'"; 
+              
                $resultado=mysqli_query($conexion,$sql);
                mysqli_close($conexion);
             
                if ( $resultado ) {
      
                        echo  "<br>Usuario eliminado";
+             
               
               } else {
      
-                       echo "<br>no se elimino" ;
+                       echo "<br>no se elimino este" ;
+             
               }
             
             
