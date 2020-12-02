@@ -4,18 +4,6 @@ include("../conexion/conexion.php");
 $conexion=conectar($servername,$database,$username,$pasword);
 
 
-
-    
-    
-    
-
-
-
-
-
-
-
-
         function insertar_noticia($titulo,$autor,$contenido,$conexion){
             
             
@@ -28,21 +16,24 @@ $resultado=mysqli_query($conexion,$sql);
      
      
      echo  "<br>Insercion exitosa";
+      redirigir();
+     
      
 } else {
      
      
      echo "<br>no se guardo" ;
+      redirigir();
  }
             
             
         }
             
 //funcion de eliminar noticia        
-        function eliminar_noticia($titulo,$conexion){
+        function eliminar_noticia($id,$conexion){
                 
              
-               $sql = "DELETE FROM noticias WHERE titulo ='$titulo'"; 
+               $sql = "DELETE FROM noticias WHERE id ='$id'"; 
                $resultado=mysqli_query($conexion,$sql);
             mysqli_close($conexion);
             
@@ -50,12 +41,12 @@ $resultado=mysqli_query($conexion,$sql);
      
      
          echo  "<br>noticia eliminada";
-             
+             redirigir();
          } else {
      
      
               echo "<br>no se elimino" ;
-              
+               redirigir();
          }
             
             
@@ -63,10 +54,24 @@ $resultado=mysqli_query($conexion,$sql);
 
 
 
-        function modificar_noticia($id,$conexion){
+        function modificar_noticia($titulo,$contenido,$autor,$id,$conexion){
        
+            $sql ="UPDATE noticias SET titulo='$titulo',contenido='$contenido',autor='$autor' WHERE id='$id'";
             
+               $resultado=mysqli_query($conexion,$sql);
+            mysqli_close($conexion);
             
+          if ( $resultado ) {
+     
+     
+         echo  "<br>noticia actualizada";
+             redirigir();
+         } else {
+     
+     
+              echo "<br>no se actualizo" ;
+               redirigir();
+         }
             
             
             
@@ -84,13 +89,13 @@ $resultado=mysqli_query($conexion,$sql);
                 if ( $resultado ) {
      
                 echo  "<br>Insercion exitosa";
-              
+              redirigir();
      
                 } else {
      
                echo "<br>no se guardo" ;
                  
-                    
+                    redirigir();
                     
                }
             
@@ -107,17 +112,22 @@ $resultado=mysqli_query($conexion,$sql);
                if ( $resultado ) {
      
                        echo  "<br>Usuario eliminado";
-             
+                          redirigir();
               
               } else {
      
                        echo "<br>no se elimino este" ;
-             
+                       redirigir();
               }
             
             
               }
-
+  function redirigir(){
+      ?><br>
+        <a href="../index.php">Volver</a>
+        <?php 
+      
+  }
 
 
 ?>

@@ -29,13 +29,7 @@
            case 2:  
                  require("vistas/list_noticias.php");
                break;
-           case 3:  
-               require("vistas/form_usuario.php");
-               break;
-           case 4:  
-               require("vistas/form_noticias.php");
-               break;
-               
+           
        }
         
     }

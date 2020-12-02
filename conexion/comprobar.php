@@ -33,14 +33,14 @@ include("../consultas/funciones_bd.php");
 
    if(isset($_POST['eliminar'])){
 
-       eliminar_noticia($titulo,$conexion);
+       eliminar_noticia($id,$conexion);
 
    }
 
 
     if(isset($_POST['modificar'])){
       
-      modificar_noticia($id,$conexion);
+      modificar_noticia($id,$titulo,$autor,$textarea,$conexion);
        
    }
 

@@ -23,7 +23,10 @@ $con=conectar($servername,$database,$username,$pasword);
         <th>likes</th>
    
     </tr>
-        
+        <form action="vistas/form_noticias.php" method="post">
+               <input name="accion" type="hidden" value="crear" >  
+               <input type="submit" value="crear"></input>
+        </form>
         <?php
         
     
@@ -35,13 +38,29 @@ $con=conectar($servername,$database,$username,$pasword);
         
         <tr>
     
-        <td width="40px;"><?php echo $mostar[0]?></td>
+        <td width="40px;"><?php echo $mostar['id']?></td>
         <td><?php echo $mostar['titulo']?></td>
         <td width="800px"; ><?php echo $mostar['contenido']?></td>
         <td><?php echo $mostar['autor']?></td>
         <td><?php echo $mostar['hora creacion']?></td>
         <td><?php echo $mostar['likes']?></td>
         
+            <td><form action="vistas/form_noticias.php" method="post">
+               <input name="id" type="hidden" value=<?php echo $mostar['id']?>>
+                
+               <input name="accion" type="hidden" value="modificar" >  
+                <input type="submit" value="modificar"></input>
+            </form>
+            </td>
+            <td>
+                <form action="vistas/form_noticias.php" method="post">
+            <input name="id" type="hidden" value=<?php echo $mostar['id']?>>
+            <input name="accion" type="hidden" value="eliminar">
+            <input type="submit" value="eliminar"></input>
+            </form>
+            </td>
+
+            
         </tr>
         <?php
         }

@@ -1,18 +1,54 @@
-<!doctype html>
-<div class="div1">
 <?php
-include("vistas/list_noticias.php");
+    
 
-?>
-</div>
+    if(!isset($_POST["accion"])){
+        
+        echo "Accion no definida";?><br>
+        <a href="vistas/list_noticias.php">Volver</a>
+        <?php exit();
+  
+    }if($_POST["accion"]=="crear"){
+        echo"Action POST:" . $_POST["accion"]." <br>";
+        crear_noticia();
+        
+        
+    }else{
+        if(!isset($_POST["id"])){
+        
+        echo "ID no definido";?><br>
+        <a href="../vistas/list_noticias.php">Volver</a>
+        <?php exit();
+        echo"Action POST:" . $_POST["accion"] . "br";
+        echo "Id POST:" .$_POST["id"] . "br"; 
+    }
+
+    }
+
+    
+ if($_POST["accion"]=="eliminar"){
+        echo"Action POST:" . $_POST["accion"]." <br>";
+        eliminar_noticia();
+        
+        
+    }
+
+if($_POST["accion"]=="modificar"){
+        echo"Action POST:" . $_POST["accion"]." <br>";
+       modificar_noticia();
+        
+        
+    }
+   
+        
+        
+        
+        
 
 
-<div class="for_u">
-
-
-         <h3>Nueva noticia</h3>
-    <table>
-         <form method="post" action= "conexion/comprobar.php">
+    function crear_noticia(){
+        ?>
+            <form method="post"  action="../conexion/comprobar.php">
+                 
          
          
          <p>TÍTULO<input  name="titulo" type="text"></p><br><br>
@@ -23,55 +59,32 @@ include("vistas/list_noticias.php");
          
           <input type="reset" >  
           <input type="submit" name="enviar" >   
-         </form>
-    </table>
-</div>
-
-
-
-
-
-<div class="eu">
-
-         <h3>Eliminar noticia</h3>
-    <table>
-         <form method="post"  action= "conexion/comprobar.php">
          
+            </form>
+        <?php
+    }
+    function eliminar_noticia(){
+          
+        ?>
          
-         <p>TITULO<input  name="titulo" type="text"></p><br><br>
+         <form method="post"  action="../conexion/comprobar.php">
+                 <input name="id" type="hidden" value=<?php echo $_POST["id"]?></input>
+                 <input type="submit" name="eliminar" value="eliminar"></input>
+            </form>
+        <?php
+           
+         }
+     function modificar_noticia() {
+     ?>
 
-         
-          <input type="reset" >  
-          <input type="submit" name="eliminar" >   
-         </form>
-    </table>
-
-</div>
-
-
-
-
-
-<div  class="mu">
-    <h3>Modificar noticia</h3>
-<table>
-         <form method="post"  action= "conexion/comprobar.php">
-         <p>ID<input name="id" type="number"></p>
-       
-         <p>TÍTULO<input  name="titulo" type="text"></p><br><br>
-
-         <p>AUTOR<input name="autor" type="text"></p><br>
-         
-        <p><textarea name="textarea"  >Introduzca su noticia, con un limite de 300 caracteres</textarea>
-            
-       
-          <input type="reset">  
-          <input type="submit" name="modificar">   
-         </form>
-    </table>
-
-
-</div>
+        
+         <form method="post"  action="../conexion/comprobar.php">
+                 <input name="id" type="hidden" value=<?php echo $_POST["id"]?></input>
+                 <input name="autor" type="text" value=<?php echo $_POST["autor"]?></input>
+             
+             
+                 <input type="submit" name="modificar" value="modificar"></input>
+            </form>
 
 
 
@@ -82,3 +95,7 @@ include("vistas/list_noticias.php");
 
 
 
+     <?php
+     }
+
+     ?>
